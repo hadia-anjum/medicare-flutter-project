@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "486259891929",
+    "firebase_url": "https://medicare2026-febd3-default-rtdb.firebaseio.com",
+    "project_id": "medicare2026-febd3",
+    "storage_bucket": "medicare2026-febd3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486259891929:android:66bbd0c05b6d48122528c8",
+        "android_client_info": {
+          "package_name": "com.example.medicare2026"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "486259891929-sfkun96ne1v7039imd4ha669dmnm8e7p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medicare2026",
+            "certificate_hash": "ceb64369fa8968474315024ce85cef262ff4d9b1"
+          }
+        },
+        {
+          "client_id": "486259891929-2oq6n9u1bim3hmb2iaqi2mtkmtlt57j0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFWPUSqegZlYtdeqSshXYJJDJFW3CrClE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "486259891929-2oq6n9u1bim3hmb2iaqi2mtkmtlt57j0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
