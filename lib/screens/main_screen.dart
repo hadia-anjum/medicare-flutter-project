@@ -16,10 +16,10 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   int _currentIndex = 0;
 
-  final List<Widget> _screens = [
+  List<Widget> get _screens => [
     const HomeScreen(),
     const HistoryScreen(),
     const AddMedicineScreen(),
@@ -29,6 +29,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     ThemeManager().addListener(_onThemeChanged);
     // Load fresh medicines from Firebase/Hive on startup
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -39,7 +40,15 @@ class _MainScreenState extends State<MainScreen> {
   void _onThemeChanged() => setState(() {});
 
   @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      Provider.of<MedicineProvider>(context, listen: false).loadMedicines();
+    }
+  }
+
+  @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     ThemeManager().removeListener(_onThemeChanged);
     super.dispose();
   }

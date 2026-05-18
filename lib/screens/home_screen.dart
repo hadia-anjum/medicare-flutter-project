@@ -5,6 +5,7 @@ import '../providers/medicine_provider.dart';
 import '../storage_service.dart';
 import '../medicine_model.dart';
 import '../notification_service.dart';
+import '../app_colors.dart';
 import 'add_medicine_screen.dart';
 import 'history_screen.dart';
 
@@ -157,13 +158,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               padding: const EdgeInsets.symmetric(
                   horizontal: 30, vertical: 15),
               decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [Color(0xFFFFB6C1), Color(0xFFE8A0BF)],
+                gradient: LinearGradient(
+                  colors: AppColors.gradient,
                 ),
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: const Color(0xFFE8A0BF).withOpacity(0.4),
+                    color: AppColors.primary.withOpacity(0.4),
                     blurRadius: 15,
                     offset: const Offset(0, 8),
                   ),
@@ -188,13 +189,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     final now = DateTime.now();
     return Container(
       padding: const EdgeInsets.fromLTRB(25, 30, 25, 30),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color(0xFFFFB6C1), Color(0xFFE8A0BF)],
+          colors: AppColors.gradient,
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(40),
           bottomRight: Radius.circular(40),
         ),
@@ -265,7 +266,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         _getDayName(date.weekday),
                         style: GoogleFonts.poppins(
                           color: isToday
-                              ? const Color(0xFFE8A0BF)
+                              ? AppColors.primary
                               : Colors.white,
                           fontSize: 11,
                           fontWeight: FontWeight.w500,
@@ -275,7 +276,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         '${date.day}',
                         style: GoogleFonts.poppins(
                           color: isToday
-                              ? const Color(0xFFE8A0BF)
+                              ? AppColors.primary
                               : Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 14,
@@ -302,7 +303,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         borderRadius: BorderRadius.circular(25),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFFE8A0BF).withOpacity(0.15),
+            color: AppColors.primary.withOpacity(0.15),
             blurRadius: 20,
             offset: const Offset(0, 8),
           ),
@@ -324,7 +325,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               Text(
                 '$taken/$total taken',
                 style: GoogleFonts.poppins(
-                  color: const Color(0xFFE8A0BF),
+                  color: AppColors.primary,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -336,9 +337,9 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             child: LinearProgressIndicator(
               value: progress,
               minHeight: 12,
-              backgroundColor: const Color(0xFFF5E6FF),
-              valueColor: const AlwaysStoppedAnimation<Color>(
-                Color(0xFFE8A0BF),
+              backgroundColor: AppColors.primary.withOpacity(0.15),
+              valueColor: AlwaysStoppedAnimation<Color>(
+                AppColors.primary,
               ),
             ),
           ),
@@ -379,7 +380,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             child: Text(
               'See History',
               style: GoogleFonts.poppins(
-                color: const Color(0xFFE8A0BF),
+                color: AppColors.primary,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -398,7 +399,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       itemBuilder: (context, index) {
         final med = medicines[index];
         final cardColor =
-            colorMap[med.color] ?? const Color(0xFFFFD6E7);
+            colorMap[med.color] ?? AppColors.card;
         final timeStr =
             '${med.hour.toString().padLeft(2, '0')}:${med.minute.toString().padLeft(2, '0')}';
 
@@ -435,7 +436,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               SnackBar(
                 content: Text('${med.name} removed!',
                     style: GoogleFonts.poppins()),
-                backgroundColor: const Color(0xFFE8A0BF),
+                backgroundColor: AppColors.primary,
                 behavior: SnackBarBehavior.floating,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12)),
@@ -497,7 +498,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                       Text(
                         med.frequency,
                         style: GoogleFonts.poppins(
-                          color: const Color(0xFFE8A0BF),
+                          color: AppColors.primary,
                           fontSize: 11,
                           fontWeight: FontWeight.w600,
                         ),
@@ -520,8 +521,8 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       color: med.taken
-                          ? const Color(0xFFE8A0BF)
-                          : const Color(0xFFF5E6FF),
+                          ? AppColors.primary
+                          : AppColors.primary.withOpacity(0.15),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Icon(
@@ -530,7 +531,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                           : Icons.circle_outlined,
                       color: med.taken
                           ? Colors.white
-                          : const Color(0xFFE8A0BF),
+                          : AppColors.primary,
                       size: 22,
                     ),
                   ),
@@ -549,7 +550,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         borderRadius: BorderRadius.circular(30),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFFE8A0BF).withOpacity(0.5),
+            color: AppColors.primary.withOpacity(0.5),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
@@ -564,7 +565,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           );
           _loadData();
         },
-        backgroundColor: const Color(0xFFE8A0BF),
+        backgroundColor: AppColors.primary,
         elevation: 0,
         icon: const Icon(Icons.add_rounded,
             color: Colors.white, size: 26),
