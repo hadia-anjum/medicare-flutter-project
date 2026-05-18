@@ -31,17 +31,12 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    // Register the callback to refresh when user taps notification actions in foreground
-    NotificationService().onNotificationActionTapped = () {
-      _loadData();
-    };
     _loadData();
   }
 
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-    NotificationService().onNotificationActionTapped = null;
     super.dispose();
   }
 

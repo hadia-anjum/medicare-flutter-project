@@ -90,33 +90,7 @@ class MedicineProvider extends ChangeNotifier {
     _error = '';
     notifyListeners();
 
-    // 1. Process any pending taken status from notifications before fetching final list
-    try {
-      final box = Hive.box('medicines');
-      final List pending = List.from(box.get('pending_taken', defaultValue: []) as List);
-      if (pending.isNotEmpty) {
-        final cleanPending = pending.map((e) => e.toString().toLowerCase().trim()).toList();
-        _loadFromHive(); // ensure we have latest local state loaded
-        var changed = false;
-        for (final med in _medicines) {
-          if (cleanPending.contains(med.name.toLowerCase().trim()) && !med.taken) {
-            med.taken = true;
-            changed = true;
-            if (_userId != null && med.id.isNotEmpty) {
-              try {
-                final ref = _database.ref('users/$_userId/medicines/${med.id}');
-                await ref.update({'taken': true});
-              } catch (_) {}
-            }
-          }
-        }
-        if (changed) {
-          _saveToHive();
-          await box.put('pending_taken', []);
-        }
-      }
-    } catch (_) {}
-
+    // 1. Fetch from Firebase (online) or Hive (offline) first
     try {
       if (_userId != null) {
         // Online — Firebase se load
@@ -149,6 +123,32 @@ class MedicineProvider extends ChangeNotifier {
       _isOnline = false;
       _loadFromHive();
     }
+
+    // 2. Apply any pending taken status from notifications on top of loaded list
+    try {
+      final box = Hive.box('medicines');
+      final List pending = List.from(box.get('pending_taken', defaultValue: []) as List);
+      if (pending.isNotEmpty) {
+        final cleanPending = pending.map((e) => e.toString().toLowerCase().trim()).toList();
+        var changed = false;
+        for (final med in _medicines) {
+          if (cleanPending.contains(med.name.toLowerCase().trim()) && !med.taken) {
+            med.taken = true;
+            changed = true;
+            if (_userId != null && med.id.isNotEmpty) {
+              try {
+                final ref = _database.ref('users/$_userId/medicines/${med.id}');
+                await ref.update({'taken': true});
+              } catch (_) {}
+            }
+          }
+        }
+        if (changed) {
+          _saveToHive();
+          await box.put('pending_taken', []);
+        }
+      }
+    } catch (_) {}
 
     _isLoading = false;
     notifyListeners();

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../providers/medicine_provider.dart';
 import '../app_colors.dart';
 import '../theme_manager.dart';
+import '../notification_service.dart';
 import 'home_screen.dart';
 import 'history_screen.dart';
 import 'add_medicine_screen.dart';
@@ -31,6 +32,10 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     ThemeManager().addListener(_onThemeChanged);
+    // Register the callback to refresh when user taps notification actions in foreground
+    NotificationService().onNotificationActionTapped = () {
+      Provider.of<MedicineProvider>(context, listen: false).loadMedicines();
+    };
     // Load fresh medicines from Firebase/Hive on startup
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<MedicineProvider>(context, listen: false).loadMedicines();
@@ -50,6 +55,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     ThemeManager().removeListener(_onThemeChanged);
+    NotificationService().onNotificationActionTapped = null;
     super.dispose();
   }
 
