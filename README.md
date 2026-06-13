@@ -8,12 +8,9 @@ MediCare is a human-centric cross-platform mobile application built using **Flut
 Here is a visual look into the clean, modern interface designed for optimized user accessibility:
 
 <p align="left">
-  <img src="https://github.com/hadia-anjum/medicare-flutter-project/blob/main/dashboard.jpg?raw=true" width="240" alt="Main Dashboard View" />
-  <img src="https://github.com/hadia-anjum/medicare-flutter-project/blob/main/notification.jpg?raw=true" width="240" alt="Push Notification Trigger" />
-  <img width="1080" height="2126" alt="WhatsApp Image 2026-06-13 at 4 43 10 PM" src="https://github.com/user-attachments/assets/d8e5514b-f227-472d-a104-738634bac90a" />
-<img width="1080" height="2137" alt="WhatsApp Image 2026-06-13 at 4 42 57 PM" src="https://github.com/user-attachments/assets/d45f4cd8-7ef9-404d-8e3e-6764731ea290" />
-
-  <img src="https://github.com/hadia-anjum/medicare-flutter-project/blob/main/themes.jpg?raw=true" width="240" alt="Multi-Theme Switching" />
+  <img src="https://github.com/hadia-anjum/medicare-flutter-project/blob/main/WhatsApp%20Image%202026-06-13%20at%204.42.12%20PM.jpeg?raw=true" width="240" alt="Main Dashboard View" />
+  <img src="https://github.com/hadia-anjum/medicare-flutter-project/blob/main/WhatsApp%20Image%202026-06-13%20at%204.42.57%20PM.jpeg?raw=true" width="240" alt="Theme Dialog Selection" />
+  <img src="https://github.com/hadia-anjum/medicare-flutter-project/blob/main/WhatsApp%20Image%202026-06-13%20at%204.42.29%20PM.jpeg?raw=true" width="240" alt="Ocean Theme Customization" />
 </p>
 
 ---
@@ -21,33 +18,33 @@ Here is a visual look into the clean, modern interface designed for optimized us
 ## 🧠 Technical Architecture & Core Modules
 
 ### 🔐 1. Authentication & Session Security (Module 1)
-*   **User Lifecycle Management:** Implemented secure user registration and login workflows with persistent session management.
-*   **Input Validation:** Robust client-side regex checks for secure emails and complex password architectures.
+* **User Lifecycle Management:** Implemented secure user registration and login workflows with persistent session management.
+* **Input Validation:** Robust client-side regex checks for secure emails and complex password architectures.
 
 ### 🎨 2. Immersive UI & Experience Optimization (Module 2)
-*   **Multi-Screen Workflow:** Configured a seamless interface spanning 5+ dedicated routes: Splash, Auth, Dashboard, Task Logs, and User Profiles.
-*   **Context Shifting Theme Engine:** Built a dynamic, status-based interface backing 4 custom themes: **Pastel, Ocean, Nature, and Dark** modes to improve user accessibility under varying lighting conditions.
+* **Multi-Screen Workflow:** Configured a seamless interface spanning 5+ dedicated routes: Splash, Auth, Dashboard, Task Logs, and User Profiles.
+* **Context Shifting Theme Engine:** Built a dynamic, status-based interface backing 4 custom themes: **Pastel, Ocean, Nature, and Dark** modes to improve user accessibility under varying lighting conditions.
 
 ### 💾 3. Data Persistence & Local CRUD (Module 3)
-*   **High-Speed Local Storage:** Integrated **Hive Database** to handle local configurations with low memory footprints.
-*   **Full CRUD Workflows:** Users can dynamically instantiate schedules, view active lists, update dose counts, and invoke context-aware swipe-to-delete flows with asynchronous verification dialogs.
+* **High-Speed Local Storage:** Integrated **Hive Database** to handle local configurations with low memory footprints.
+* **Full CRUD Workflows:** Users can dynamically instantiate schedules, view active lists, update dose counts, and invoke context-aware swipe-to-delete flows with asynchronous verification dialogs.
 
 ### 🌐 4. Asynchronous Networking & State Management (Modules 4 & 5)
-*   **REST API Handlers:** Leveraged the `http` package to securely capture, parse, and map external JSON-based inspirational data models asynchronously.
-*   **Fault-Tolerant Logic:** Safe error boundaries utilizing try-catch blocks to feed elegant offline placeholders when device access is restricted.
-*   **Reactive Architecture:** Clean separation of concerns using the **Provider** pattern for decoupled state changes (`MedicineProvider`, `AuthProvider`).
+* **REST API Handlers:** Leveraged the `http` package to securely capture, parse, and map external JSON-based inspirational data models asynchronously.
+* **Fault-Tolerant Logic:** Safe error boundaries utilizing try-catch blocks to feed elegant offline placeholders when device access is restricted.
+* **Reactive Architecture:** Clean separation of concerns using the **Provider** pattern for decoupled state changes (`MedicineProvider`, `AuthProvider`).
 
 ### 🔔 5. Background Routines & Hardware Triggers (Module 6)
-*   **Local Notification Handlers:** Integrated `flutter_local_notifications` to safely register native system notifications and persistent alarm routines that successfully ring even when the application lifecycle is backgrounded.
+* **Local Notification Handlers:** Integrated `flutter_local_notifications` to safely register native system notifications and persistent alarm routines that successfully ring even when the application lifecycle is backgrounded.
 
 ---
 
 ## ⚙️ Tech Stack & Dependencies
-*   **Framework:** Flutter SDK
-*   **Core Engine:** Dart
-*   **Local Storage Engine:** Hive Database
-*   **State Containers:** Provider Pattern
-*   **Asynchronous Alert Triggers:** flutter_local_notifications
+* **Framework:** Flutter SDK
+* **Core Engine:** Dart
+* **Local Storage Engine:** Hive Database
+* **State Containers:** Provider Pattern
+* **Asynchronous Alert Triggers:** flutter_local_notifications
 
 ---
 
@@ -57,7 +54,7 @@ To run this repository locally on your development system, perform the following
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/hadia-anjum/medicare-flutter-project.git
+git clone [https://github.com/hadia-anjum/medicare-flutter-project.git](https://github.com/hadia-anjum/medicare-flutter-project.git)
 
 # 2. Access the root folder
 cd medicare-flutter-project
