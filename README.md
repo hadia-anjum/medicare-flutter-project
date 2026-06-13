@@ -5,14 +5,7 @@ MediCare is a human-centric cross-platform mobile application built using **Flut
 ---
 
 ## 📸 Application UI Showcase
-Here is a visual look into the clean, modern interface designed for optimized user accessibility:
-
-<p align="left">
-  <img src="https://github.com/hadia-anjum/medicare-flutter-project/blob/main/WhatsApp%20Image%202026-06-13%20at%204.42.12%20PM_2.jpeg?raw=true" width="240" alt="Main Dashboard View" />
-  <img src="https://github.com/hadia-anjum/medicare-flutter-project/blob/main/WhatsApp%20Image%202026-06-13%20at%204.42.57%20PM_2.jpeg?raw=true" width="240" alt="Theme Dialog Selection" />
-  <img src="https://github.com/hadia-anjum/medicare-flutter-project/blob/main/WhatsApp%20Image%202026-06-13%20at%204.42.29%20PM_2.jpeg?raw=true" width="240" alt="Ocean Theme Customization" />
-</p>
-
+All application walkthrough screenshots and UI designs are available in the main repository files above.
 
 ---
 
